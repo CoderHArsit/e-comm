@@ -1,29 +1,65 @@
 import React from 'react'
+import {useState,useEffect} from 'react';
 
-const checkout=()=> {
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+const Checkout=()=> {
+ 
 
+    const handleSubmit=()=>{}
    
-    const handleSubmit=()=>{
-
+        const {id}=useParams();
+    const [product, setProduct]=useState([]);
+    const [loading, setLoading]=useState(false);
+    
+   
+    useEffect(()=>{
+        const getProduct = async()=>{
+            setLoading(true);
+            const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+            setProduct(await response.json());
+            setLoading(false);
+        }
+        getProduct();
+    },[]);
+    
+    const Loading=()=>{
+        return(<>
+        Loading...</>)
     }
+    const ShowProduct=()=>
+    {
+        return(
+            <>
+            <p className='container'>{product.title}</p>
+            <img src={product.image} alt="no image" height="100px" width="100px" ></img>
+            </>
+        )
+    }
+    
   return (
-    <div>
-      <form className="row g-3">
+     
+
+    <div className='container'>
+
+      <form className="row g-3">         <div className='row'>
+            {loading ? <Loading/>:<ShowProduct/>}
+        </div>
   <div className="col-md-6">
-    <label for="inputEmail4" className="form-label">First Name</label>
-    <input type="name" className="form-control" id="inputEmail4"/>
+    <label for="inputEmail4" className="form-label" >First Name</label>
+    <input type="fname"   id="fname" ></input>
   </div>
   <div className="col-md-6">
     <label for="inputEmail4" className="form-label">Last Name</label>
-    <input type="name" className="form-control" id="inputEmail4"/>
+    <input type="lname" id="lname" />
   </div>
   <div className="col-md-6">
-    <label for="inputEmail4" className="form-label">Email</label>
+    <label for="inputEmail4" className="form-label" >Email</label>
     <input type="email" className="form-control" id="inputEmail4"/>
   </div>
   <div className="col-md-6">
-    <label for="inputPassword4" className="form-label">contact number</label>
-    <input type="number" className="form-control" id="inputPassword4"/>
+    <label for="inputPassword4" className="form-label" >contact number</label>
+    <input type="number" className="number" id="number"/>
   </div>
   <div className="col-12">
     <label for="inputAddress" className="form-label">Address</label>
@@ -57,11 +93,11 @@ const checkout=()=> {
     </div>
   </div>
   <div className="col-12">
-    <button type="submit" className="btn btn-primary d-flex justify-content-center" onClick={handleSubmit()}>Submit</button>
+    <Link to={`/model/${product.id}`} type="submit" className="btn btn-primary d-flex justify-content-center">Submit</Link>
   </div>
 </form>
     </div>
   )
 }
 
-export default checkout
+export default Checkout

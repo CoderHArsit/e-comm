@@ -46,7 +46,7 @@ const Product=()=> {
             </h3>
             <p className='lead'>{product.description}</p>
           
-            <Link to="/cart" className='btn btn-dark ms-2 px-3 py-2'>
+            <Link to={`/cart/${product.id}`} className='btn btn-dark ms-2 px-3 py-2'>
                 Buy Now
             </Link>
         </div>

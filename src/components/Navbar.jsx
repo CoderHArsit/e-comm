@@ -35,12 +35,7 @@ const  Navbar=()=> {
         
         
       </ul>
-      <div className='buttons'>
-        <Link to="/cart" className='btn btn-outline-dark'>
-
-          <i className='fa fa-sign-in me-1' ></i>Cart(0)
-        </Link>
-      </div>    </div>
+        </div>
   </div>
 </nav>
     </div>

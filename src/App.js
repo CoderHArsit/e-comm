@@ -15,6 +15,8 @@ import Home from './components/Home';
 import Product from './components/Product';
 import Products from './components/Products';
 import Checkout from './components/Checkout';
+import Contact from './components/Contact';
+import About from './components/About';
 // import { Home } from './components/Home';
 // import { Alert } from './components/Alert';
 
@@ -27,8 +29,10 @@ function App() {
       <Route exact path="/" element={<Home/>}/>
       <Route exact path="/products" element={<Products/>}/>
       <Route exact path="/products/:id" element={<Product/>}/>
-      <Route exact path="/cart" element={<Checkout/>}/>
-
+      <Route exact path="/cart/:id" element={<Checkout/>}/>
+      <Route exact path='/model/:id' element={<Modal/>}/>
+      <Route exact path='/contact' element={<Contact/>}/>
+      <Route exact path='/about' element={<About/>}/>
     </Routes>
     
     </div>
