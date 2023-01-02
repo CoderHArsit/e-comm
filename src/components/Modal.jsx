@@ -31,9 +31,9 @@ const Modal=()=> {
   <img src={product.image} className="card-img-top" alt="..."/>
   <div className="card-body">
     <h5 className="card-title">{product.title}</h5>
-    <p className="card-text">your name=</p>
-    <p className="card-text">your number=</p>
-    <p className="card-text">your address=</p>
+    <p className="card-text">your name=username</p>
+    <p className="card-text">your number=xxxxxxxx</p>
+    <p className="card-text">your address=9djnnlxj,z kjd c</p>
     
     <Link to="/products" className="btn btn-primary">Shop More</Link>
   </div>

@@ -3,6 +3,7 @@ import {useState,useEffect} from 'react';
 
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+// import Modal from './Modal';
 const Checkout=()=> {
  
 
@@ -22,8 +23,25 @@ const Checkout=()=> {
     //     value=e.target.value;
 
     //     setUser({...user, [name]:value}); 
+    // // }
+    // const [name,setName]= useState("enter the name");
+    // const [number,setNumber]=useState("enter the number");
+    // const [address,setAddress]=useState("enter the address");
+    // const namech=(e)=>
+    // {
+    // //  e.preventDefault();
+    //  setName(e);
     // }
-   
+    // const numch=(e)=>
+    // {
+    // //  e.preventDefault();
+    //  setNumber(e);
+    // }
+    // const addch=(e)=>
+    // {
+    // //  e.preventDefault();
+    //  setAddress(e);
+    // }
     useEffect(()=>{
         const getProduct = async()=>{
             setLoading(true);
@@ -42,8 +60,8 @@ const Checkout=()=> {
     {
         return(
             <>
-            <p className='container'>{product.title}</p>
-            <img src={product.image} alt="no image" height="10px" width="10px" ></img>
+            <div className='container' style={{margin:"20px 20px"}}>{product.title} <img src={product.image} alt="no image" height="50%" width="50%" ></img></div>
+            {/* <img  src={product.image} alt="no imag" height="10pt" width="10pt"></img> */}
             </>
         )
     }
@@ -66,7 +84,7 @@ const Checkout=()=> {
   </div>
   <div className="col-md-6">
     <label for="inputEmail4" className="form-label" >Email</label>
-    <input type="email" className="form-control" name='email'  id="inputEmail4"/>
+    <input type="email" className="form-control" name='email'   id="inputEmail4"/>
   </div>
   <div className="col-md-6">
     <label for="inputPassword4" className="form-label" >contact number</label>
@@ -105,6 +123,7 @@ const Checkout=()=> {
   </div>
   <div className="col-12">
     <Link to={`/model/${product.id}`} type="submit" className="btn btn-primary d-flex justify-content-center">Submit</Link>
+   
   </div>
 </form>
     </div>
