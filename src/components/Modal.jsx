@@ -8,8 +8,7 @@ const Modal=()=> {
     const {id}=useParams();
     const [product, setProduct]=useState([]);
     const [loading, setLoading]=useState(false);
-    
-   
+
     useEffect(()=>{
         const getProduct = async()=>{
             setLoading(true);

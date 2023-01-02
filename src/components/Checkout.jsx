@@ -12,6 +12,17 @@ const Checkout=()=> {
     const [product, setProduct]=useState([]);
     const [loading, setLoading]=useState(false);
     
+    // const [user,setUser]=useState({
+    //     name:" ",email:" ",phone:" ",address:" "
+    // });
+    // let name,value;
+    // const handleInputs=(e)=>{
+    //     console.log(e);
+    //     name=e.target.name;
+    //     value=e.target.value;
+
+    //     setUser({...user, [name]:value}); 
+    // }
    
     useEffect(()=>{
         const getProduct = async()=>{
@@ -32,7 +43,7 @@ const Checkout=()=> {
         return(
             <>
             <p className='container'>{product.title}</p>
-            <img src={product.image} alt="no image" height="100px" width="100px" ></img>
+            <img src={product.image} alt="no image" height="10px" width="10px" ></img>
             </>
         )
     }
@@ -47,7 +58,7 @@ const Checkout=()=> {
         </div>
   <div className="col-md-6">
     <label for="inputEmail4" className="form-label" >First Name</label>
-    <input type="fname"   id="fname" ></input>
+    <input type="fname"  name='name'  id="fname" ></input>
   </div>
   <div className="col-md-6">
     <label for="inputEmail4" className="form-label">Last Name</label>
@@ -55,15 +66,15 @@ const Checkout=()=> {
   </div>
   <div className="col-md-6">
     <label for="inputEmail4" className="form-label" >Email</label>
-    <input type="email" className="form-control" id="inputEmail4"/>
+    <input type="email" className="form-control" name='email'  id="inputEmail4"/>
   </div>
   <div className="col-md-6">
     <label for="inputPassword4" className="form-label" >contact number</label>
-    <input type="number" className="number" id="number"/>
+    <input type="number" className="number" name='phone'  id="number"/>
   </div>
   <div className="col-12">
     <label for="inputAddress" className="form-label">Address</label>
-    <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St"/>
+    <input type="text" className="form-control" name='address' id="inputAddress"  placeholder="1234 Main St"/>
   </div>
   <div className="col-12">
     <label for="inputAddress2" className="form-label">landmark</label>
